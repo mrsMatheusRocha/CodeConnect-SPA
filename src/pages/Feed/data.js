@@ -100,7 +100,7 @@ export const posts = [
     "comments": mockComments(3, 4)
 },
 {
-    "cover": "https://raw.githubusercontent.com/viniciosneves/code-connect-assets/main/posts/dicas-de-acessibilidade-web.png",
+    "cover": "dicas-de-acessibilidade-web.webp",
     "title": "Dicas de Acessibilidade Web",
     "slug": "dicas-de-acessibilidade-web",
     "body": "Explorando a importância da acessibilidade na web, este post oferece dicas práticas para tornar seus sites mais acessíveis a todos os usuários.",
@@ -170,7 +170,7 @@ export const posts = [
     "comments": mockComments(10, 2)
 },
 {
-    "cover": "https://raw.githubusercontent.com/viniciosneves/code-connect-assets/main/posts/webpack-um-guia-para-iniciantes.png",
+    "cover": "webpack-um-guia-para-iniciantes.webp",
     "title": "Webpack: Um Guia para Iniciantes",
     "slug": "webpack-um-guia-para-iniciantes",
     "body": "Aprenda a configurar o Webpack, uma poderosa ferramenta de empacotamento de módulos, neste guia passo a passo para iniciantes.",
@@ -180,7 +180,7 @@ export const posts = [
     "comments": mockComments(11, 3)
 },
 {
-    "cover": "https://raw.githubusercontent.com/viniciosneves/code-connect-assets/main/posts/construindo-spa-com-vuejs.png",
+    "cover": "construindo-spa-com-vuejs.webp",
     "title": "Construindo SPA com Vue.js",
     "slug": "construindo-spa-com-vuejs",
     "body": "Este post oferece um tutorial detalhado sobre como construir uma Single Page Application (SPA) eficiente e interativa usando o framework Vue.js.",
