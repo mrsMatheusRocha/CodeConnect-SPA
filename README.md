@@ -2,7 +2,7 @@
 
 > Uma Single Page Application (SPA) focada em conectar desenvolvedores, projetos e oportunidades. Interface rápida, experiência fluida e arquitetura moderna para facilitar o desenvolvimento e a colaboração.
 
-[![Status](https://img.shields.io/badge/status-em%20desenvolvimento-orange)](https://github.com/mrsMatheusRocha/CodeConnect-SPA)
+[![Status](https://img.shields.io/badge/status-finalizado-green)](https://github.com/mrsMatheusRocha/CodeConnect-SPA)
 [![Linguagem](https://img.shields.io/badge/language-JavaScript-yellow)](https://github.com/mrsMatheusRocha/CodeConnect-SPA)
 [![Autor](https://img.shields.io/badge/author-mrsMatheusRocha-blue)](https://github.com/mrsMatheusRocha)
 
