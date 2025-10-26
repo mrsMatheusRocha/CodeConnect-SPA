@@ -5,7 +5,7 @@ export const AuthLayout = () => {
     return (
         <div className={styles.container}>
             <div className={styles.card}>
-                element={<AuthLayout />}
+                <Outlet/>
             </div>
         </div>
     )

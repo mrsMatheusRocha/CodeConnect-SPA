@@ -36,7 +36,6 @@ export const Register = () => {
     }
 
     return (
-        <AuthLayout>
             <AuthFormContainer bannerSrc={banner}>
                 <Typography variant="h1" color="--offwhite">Cadastro</Typography>
                 <Typography variant="h2" color="--offwhite">Olá! Preencha seus dados.</Typography>
@@ -77,7 +76,7 @@ export const Register = () => {
                         <Checkbox label="Lembrar-me" />
                     </Fieldset>
                     <Button type="submit">
-                        Login <IconArrowFoward />
+                        Registrar <IconArrowFoward />
                     </Button>
                 </Form>
                 <div>
@@ -96,6 +95,5 @@ export const Register = () => {
                     </Link>
                 </footer>
             </AuthFormContainer>
-        </AuthLayout>
     )
 }

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useAuth } from "../../hooks/useAuth"
+import { useAuth } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
 export const Logout = () => {
@@ -7,9 +7,9 @@ export const Logout = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    logout()
-    navigate('/auth/login')
-  }, [logout, navigate])
+    logout();
+    navigate("/auth/login");
+  }, [logout, navigate]);
 
-  return null
-}
+  return null;
+};
