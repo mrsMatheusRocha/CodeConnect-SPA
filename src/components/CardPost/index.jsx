@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { Author } from "../Author"
 import { ModalComment } from "../ModalComment"
 import styles from './cardpost.module.css'
