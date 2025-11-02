@@ -6,11 +6,12 @@ import { IconInfo } from '../icons/IconInfo'
 import { IconLogin } from '../icons/IconLogin'
 import { Button } from '../Button'
 import { Link } from '../Link'
+import { useAuth } from '../../hooks/useAuth' 
 
 import styles from './aside.module.css'
 
 export const Aside = () => {
-
+    const { isAuthenticated } = useAuth() 
 
     return (<aside className={styles.aside}>
         <nav>
@@ -43,13 +44,23 @@ export const Aside = () => {
                         Sobre nós
                     </AsideLink>
                 </li>
-                <li>
+                {isAuthenticated && (
+                    <li>
                     <AsideLink href="/auth/logout">
                         <IconLogin />
                         Logout
                     </AsideLink>
-                </li>
-            </ul>
+                    </li>
+                )}
+                {!isAuthenticated && (
+                    <li>
+                    <AsideLink href="/auth/login">
+                        <IconLogin />
+                        Login
+                    </AsideLink>
+                    </li>
+                )}
+                </ul>
         </nav>
     </aside>)
 }

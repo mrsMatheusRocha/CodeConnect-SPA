@@ -1,27 +1,50 @@
-import { AppLayout } from "../../layouts/App";
-import { posts } from "../Feed/data";
 import styles from "./blogpost.module.css";
 import { ThumbsUpButton } from "../../components/CardPost/ThumbsUpButton";
-import { IconButton } from "../../components/IconButton";
-import { IconChat } from "../../components/icons/IconChat";
 import { Author } from "../../components/Author";
 import Typography from "../../components/Typography";
 import { CommentList } from "../../components/CommentList";
 import ReactMarkdown from "react-markdown";
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { ModalComment } from "../../components/ModalComment";
+import { http } from "../../api";
+import { usePostInteractions } from "../../hooks/usePostInteractions";
+import { useAuth } from "../../hooks/useAuth";
 
 export const BlogPost = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const [post, setPost] = useState(null);
+  const { isAuthenticated } = useAuth()
 
-  const post = posts.find((p) => p.slug == slug);
+  const {
+    comments,
+    likes,
+    handleNewComment,
+    handleDeleteComment,
+    handleLikeButton,
+  } = usePostInteractions(post);
+
+  const onLikeClick = () => {
+    handleLikeButton(post?.id);
+  };
 
   useEffect(() => {
-    if (!post) {
-      navigate("/not-found");
-    }
-  }, [navigate, post]);
+    http
+      .get(`blog-posts/slug/${slug}`)
+      .then((res) => {
+        setPost(res.data);
+      })
+      .catch((error) => {
+        if (error.status == 404) {
+          navigate("/not-found");
+        }
+      });
+  }, [slug, navigate]);
+
+  if (!post) {
+    return null;
+  }
 
   return (
     <main className={styles.main}>
@@ -41,14 +64,12 @@ export const BlogPost = () => {
         <footer className={styles.footer}>
           <div className={styles.actions}>
             <div className={styles.action}>
-              <ThumbsUpButton loading={false} />
-              <p>{post.likes}</p>
+              <ThumbsUpButton onClick={onLikeClick} loading={false} disabled={!isAuthenticated}/>
+              <p>{likes}</p>
             </div>
             <div className={styles.action}>
-              <IconButton>
-                <IconChat />
-              </IconButton>
-              <p>{post.comments.length}</p>
+              <ModalComment onSuccess={handleNewComment} postId={post?.id} />
+              <p>{comments.length}</p>
             </div>
           </div>
           <Author author={post.author} />
@@ -58,7 +79,7 @@ export const BlogPost = () => {
       <div className={styles.code}>
         <ReactMarkdown>{post.markdown}</ReactMarkdown>
       </div>
-      <CommentList comments={post.comments} />
+      <CommentList comments={comments} onDelete={handleDeleteComment} />
     </main>
   );
 };

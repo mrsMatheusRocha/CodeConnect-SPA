@@ -19,14 +19,7 @@ export const AppRouter = () => {
           <Route path="logout" element={<Logout />} />
         </Route>
         <Route path="/" element={<AppLayout />}>
-          <Route
-            path=""
-            element={
-              <ProtectedRoute>
-                <Feed />
-              </ProtectedRoute>
-            }
-          />
+          <Route path="" element={<Feed />} />
           <Route
             path="blog-post/:slug"
             element={
